@@ -70,6 +70,7 @@ class Home extends React.Component<IHomeProps, IHomeState> {
     if (this.state.loaded) {
       return (
         <main className="container py-5">
+          <Link className="btn btn-primary" to={`/donate`}>Donate!</Link>
           <div className="row">
             {this.state.blogInfo.map(entry => (
               <div className="col-md-4" key={entry.id}>
@@ -79,7 +80,9 @@ class Home extends React.Component<IHomeProps, IHomeState> {
                     <h5 className="card-title">{entry.title}</h5>
                     <h6 className="card-subtitle mb-2 text-muted">{moment(entry.created).format("MMM. DD, YYYY")}</h6>
                     <p className="card-text">{entry.name}</p>
-                    <Link className="card-link btn btn-primary" to={`/${entry.id}`}>View Blog</Link>
+
+                    <Link className="card-link btn btn-primary" to={`/details/${entry.id}`}>View Blog</Link>
+
                   </div>
                 </div>
               </div>
